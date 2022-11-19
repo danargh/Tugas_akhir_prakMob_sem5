@@ -118,7 +118,7 @@ List<Color> jettColors = [
 
 class AppTheme {
   final valoTheme = ThemeData(
-    scaffoldBackgroundColor: white,
+    scaffoldBackgroundColor: black_second,
     appBarTheme:
         const AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
     bottomNavigationBarTheme:
