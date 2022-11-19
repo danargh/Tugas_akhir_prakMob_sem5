@@ -24,7 +24,6 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     const AgentsScreen(),
     const MapsScreen(),
     const WeaponScreen(),
-    // const AgentsScreen(),
   ];
 
   // Review Services

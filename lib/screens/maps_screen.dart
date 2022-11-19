@@ -36,7 +36,7 @@ class _MapsScreenState extends State<MapsScreen> {
             Text(
               'Maps',
               style: TextStyle(
-                  color: white, fontFamily: 'Valorant', fontSize: 20.sp),
+                  color: Colors.black, fontFamily: 'Valorant', fontSize: 20.sp),
             ),
             SizedBox(
               height: 10.h,

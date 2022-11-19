@@ -21,7 +21,7 @@ class _WeaponScreenState extends State<WeaponScreen> {
   late Future<Iterable<Weapon>> _weapons;
   @override
   void initState() {
-   _weapons = _weaponsClient.getWeapons();
+    _weapons = _weaponsClient.getWeapons();
     super.initState();
   }
 
@@ -38,14 +38,20 @@ class _WeaponScreenState extends State<WeaponScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Weapons',style: TextStyle(color: white,fontFamily: 'Valorant',fontSize: 20.sp),),
-            SizedBox(height: 10.h,),
+            Text(
+              'Weapons',
+              style: TextStyle(
+                  color: black, fontFamily: 'Valorant', fontSize: 20.sp),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
             FutureBuilder<Iterable<Weapon>>(
               future: _weapons,
               builder: (
-                  BuildContext context,
-                  AsyncSnapshot<Iterable<Weapon>> snapshot,
-                  ) {
+                BuildContext context,
+                AsyncSnapshot<Iterable<Weapon>> snapshot,
+              ) {
                 return WeaponsList(snapshot: snapshot);
               },
             ),
