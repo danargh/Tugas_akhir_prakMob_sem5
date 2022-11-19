@@ -1,33 +1,23 @@
 import 'package:dio/dio.dart';
 import 'package:valorant_tips/network/api_client.dart';
-
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import '../models/map.dart';
 
 class MapsClient extends ApiClient {
   // Get Maps
   Future<Iterable<Maps>> getlAllMaps() async {
     Iterable<Maps> maps = [];
-    try {
-      // Get response
-      Response response = await super.dio.get("${super.baseUrl}v1/maps");
+    Uri url = Uri.parse("${baseUrl}v1/maps");
+    // Get response
+    var apiResult = await http.get(url);
+    var jsonObject = jsonDecode(apiResult.body);
+    // Parsed list bunu mapleyip her haritayi tek tek maps listesine atiyoruz
+    List parsedList = (jsonObject as Map<String, dynamic>)['data'];
+    maps = parsedList.map((element) {
+      return Maps.fromJson(element);
+    });
 
-      // Parsed list bunu mapleyip her haritayi tek tek maps listesine atiyoruz
-      List parsedList = response.data['data'];
-      maps = parsedList.map((element) {
-        return Maps.fromJson(element);
-      });
-
-    } on DioError catch (e) {
-      if (e.response != null) {
-        print('STATUS: ${e.response?.statusCode}');
-        print('DATA: ${e.response?.data}');
-        print('HEADERS: ${e.response?.headers}');
-      } else {
-        // Error due to setting up or sending the request
-        print('Error sending request!');
-        print(e.message);
-      }
-    }
     return maps;
   }
 }
