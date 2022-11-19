@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:valorant_tips/models/weapon.dart';
 import 'package:valorant_tips/network/api_client.dart';
 import 'package:http/http.dart' as http;
