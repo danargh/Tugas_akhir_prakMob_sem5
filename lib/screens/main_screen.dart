@@ -54,7 +54,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     return Scaffold(
       bottomNavigationBar: PersistentTabView(
         context,
-        navBarStyle: NavBarStyle.style7,
+        navBarStyle: NavBarStyle.style3,
         backgroundColor:
             Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
         screens: tabs,
