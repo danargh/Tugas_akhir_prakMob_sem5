@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 const black = Color(0xFF101823);
-const black_second = Colors.black;
-const white = Color(0xFFFFFFFF);
+const black_second = Color(0xFFFFFFFF);
+const white = Colors.black;
 const grey = Color(0xFF787878);
 var fadeColors = [
   Colors.black87,
