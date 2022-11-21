@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-
 import '../models/network_result.dart';
 import 'i_network_manager.dart';
 

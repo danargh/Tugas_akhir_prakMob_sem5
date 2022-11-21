@@ -10,7 +10,8 @@ class AgentList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (snapshot.connectionState == ConnectionState.waiting) {
-      return Center(child: SizedBox(height: 100.h, width: 50.w, child: const CircularProgressIndicator()));
+      return Center(
+          child: SizedBox(height: 100.h, width: 50.w, child: const CircularProgressIndicator()));
     } else if (snapshot.connectionState == ConnectionState.done) {
       if (snapshot.hasError) {
         return const Text('Error');
@@ -21,7 +22,8 @@ class AgentList extends StatelessWidget {
             addAutomaticKeepAlives: false,
             addRepaintBoundaries: false,
             scrollDirection: Axis.vertical,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 2 / 2.4),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, childAspectRatio: 2 / 2.4),
             itemCount: snapshot.data?.length,
             itemBuilder: (BuildContext context, int index) {
               var data = snapshot.data!.toList();

@@ -9,16 +9,17 @@ class Maps {
   String? mapUrl;
   List<Callouts>? callouts;
 
-  Maps(
-      {this.uuid,
-        this.displayName,
-        this.coordinates,
-        this.displayIcon,
-        this.listViewIcon,
-        this.splash,
-        this.assetPath,
-        this.mapUrl,
-        this.callouts});
+  Maps({
+    this.uuid,
+    this.displayName,
+    this.coordinates,
+    this.displayIcon,
+    this.listViewIcon,
+    this.splash,
+    this.assetPath,
+    this.mapUrl,
+    this.callouts,
+  });
 
   Maps.fromJson(Map<String, dynamic> json) {
     uuid = json['uuid'];
@@ -36,22 +37,6 @@ class Maps {
       });
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['uuid'] = uuid;
-    data['displayName'] = displayName;
-    data['coordinates'] = coordinates;
-    data['displayIcon'] = displayIcon;
-    data['listViewIcon'] = listViewIcon;
-    data['splash'] = splash;
-    data['assetPath'] = assetPath;
-    data['mapUrl'] = mapUrl;
-    if (callouts != null) {
-      data['callouts'] = callouts!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
 }
 
 class Callouts {
@@ -64,19 +49,7 @@ class Callouts {
   Callouts.fromJson(Map<String, dynamic> json) {
     regionName = json['regionName'];
     superRegionName = json['superRegionName'];
-    location = json['location'] != null
-        ? Location.fromJson(json['location'])
-        : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['regionName'] = regionName;
-    data['superRegionName'] = superRegionName;
-    if (location != null) {
-      data['location'] = location!.toJson();
-    }
-    return data;
+    location = json['location'] != null ? Location.fromJson(json['location']) : null;
   }
 }
 
@@ -89,12 +62,5 @@ class Location {
   Location.fromJson(Map<String, dynamic> json) {
     x = json['x'];
     y = json['y'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['x'] = x;
-    data['y'] = y;
-    return data;
   }
 }

@@ -46,50 +46,65 @@ class AgentsCard extends StatelessWidget {
           ),
         );
       },
-      child: Stack(alignment: Alignment.center, children: [
-        // Transparent Container
-        Container(
-          color: Colors.transparent,
-          child: Padding(
-            padding: EdgeInsets.only(top: 30.h),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          // Transparent Container
+          Container(
+            color: Colors.transparent,
+            child: Padding(
+              padding: EdgeInsets.only(top: 30.h),
 
-            // Colored Container
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: agentColors[agent.displayName!.toLowerCase()] ?? [CupertinoColors.destructiveRed, CupertinoColors.black]),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
+              // Colored Container
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: agentColors[agent.displayName!.toLowerCase()] ??
+                          [CupertinoColors.destructiveRed, CupertinoColors.black]),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
                 ),
-              ),
-              alignment: Alignment.bottomLeft,
-              width: 160.w,
+                alignment: Alignment.bottomLeft,
+                width: 160.w,
 
-              // Agent info column
-              child: Padding(
-                padding: EdgeInsets.all(5.h),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      agent.role!.displayName!,
-                      style: TextStyle(fontFamily: 'Valorant', color: white, fontSize: 10.sp),
-                    ),
-                    Text(
-                      agent.displayName!,
-                      style: TextStyle(fontFamily: 'Valorant', color: white, fontSize: 20.sp),
-                    ),
-                  ],
+                // Agent info column
+                child: Padding(
+                  padding: EdgeInsets.all(5.h),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        agent.role!.displayName!,
+                        style: TextStyle(fontFamily: 'Valorant', color: white, fontSize: 10.sp),
+                      ),
+                      Text(
+                        agent.displayName!,
+                        style: TextStyle(fontFamily: 'Valorant', color: white, fontSize: 20.sp),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
 
-        // Agent Image
-        Positioned(child: Hero(tag: agent, child: CachedNetworkImage(placeholder: (context, url) => const CircularProgressIndicator(), errorWidget: (context, url, error) => const Icon(Icons.error), imageUrl: agent.fullPortrait ?? 'https://via.placeholder.com/150'))),
-      ]),
+          // Agent Image
+          Positioned(
+            child: Hero(
+              tag: agent,
+              child: CachedNetworkImage(
+                  placeholder: (context, url) => const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  imageUrl: agent.fullPortrait ?? 'https://via.placeholder.com/150'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

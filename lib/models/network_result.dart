@@ -4,8 +4,7 @@ enum NetworkResult {
   on,
   off;
 
-  static NetworkResult checkConnectivityResult(
-      InternetConnectionStatus status) {
+  static NetworkResult checkConnectivityResult(InternetConnectionStatus status) {
     switch (status) {
       case InternetConnectionStatus.connected:
         return NetworkResult.on;

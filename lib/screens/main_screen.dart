@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   ];
 
   // Review Services
-  ReviewService _reviewService = ReviewService();
+  final ReviewService _reviewService = ReviewService();
 
   // Assets
   final AppAssets _appAssets = AppAssets();
@@ -55,8 +55,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
       bottomNavigationBar: PersistentTabView(
         context,
         navBarStyle: NavBarStyle.style3,
-        backgroundColor:
-            Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
+        backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
         screens: tabs,
         items: [
           // Agents
@@ -85,27 +84,20 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
           // Weapons
           PersistentBottomNavBarItem(
-              activeColorPrimary: CupertinoColors.destructiveRed,
-              inactiveColorPrimary: CupertinoColors.inactiveGray,
-              activeColorSecondary: CupertinoColors.white,
-              icon: Image.asset(
-                _appAssets.weapons_icon,
-                width: 25.w,
-              ),
-              inactiveIcon: Image.asset(
-                _appAssets.weapons_icon,
-                width: 25.w,
-                color: CupertinoColors.inactiveGray,
-              ),
-              title: 'Weapons'),
-
-          // Ranks
-          // PersistentBottomNavBarItem(
-          //     activeColorPrimary: CupertinoColors.destructiveRed,
-          //     inactiveColorPrimary: CupertinoColors.inactiveGray,
-          //     activeColorSecondary: Colors.white,
-          //     icon: const Icon(Icons.emoji_events_outlined),
-          //     title: 'Rank'),
+            activeColorPrimary: CupertinoColors.destructiveRed,
+            inactiveColorPrimary: CupertinoColors.inactiveGray,
+            activeColorSecondary: CupertinoColors.white,
+            icon: Image.asset(
+              _appAssets.weapons_icon,
+              width: 25.w,
+            ),
+            inactiveIcon: Image.asset(
+              _appAssets.weapons_icon,
+              width: 25.w,
+              color: CupertinoColors.inactiveGray,
+            ),
+            title: 'Weapons',
+          ),
         ],
       ),
     );

@@ -11,7 +11,7 @@ class ReviewService {
 
   final InAppReview _inAppReview = InAppReview.instance;
   Future<bool> isSecondTimeOpen() async {
-    _sharedPreferences = await SharedPreferencesHelper.instance;
+    _sharedPreferences = SharedPreferencesHelper.instance;
     openCounter = _sharedPreferences.getInt(COUNTER) ?? 1;
     try {
       dynamic isSecondTime = _sharedPreferences.getBool(KEY);

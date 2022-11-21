@@ -8,8 +8,7 @@ import '../../../constants/app_colors.dart';
 import '../../../models/weapon.dart';
 
 class WeaponSectionOne extends StatelessWidget {
-  WeaponSectionOne({Key? key, required this.weapon, required this.deviceInfo})
-      : super(key: key);
+  WeaponSectionOne({Key? key, required this.weapon, required this.deviceInfo}) : super(key: key);
   final deviceInfo;
   Weapon weapon;
 
@@ -24,9 +23,13 @@ class WeaponSectionOne extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
-          padding: EdgeInsets.only(top: 15.h),
+          padding: EdgeInsets.only(top: 1.h),
           child: Column(
             children: [
+              const Divider(
+                color: black,
+              ),
+
               // First Section
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -39,19 +42,19 @@ class WeaponSectionOne extends StatelessWidget {
                     children: [
                       Text('KILLFEED ICON',
                           style: TextStyle(
-                              color: white,
+                              color: black,
                               fontWeight: FontWeight.bold,
                               fontSize:
                                   // For iphone 5s and iphone se gen 1
-                              deviceInfo == 439 ? 12.5.sp
-                                  // Others
-                                  : 12.5.sp)),
+                                  deviceInfo == 439
+                                      ? 12.5.sp
+                                      // Others
+                                      : 12.5.sp)),
                       SizedBox(
                         height: 5.h,
                       ),
                       CachedNetworkImage(
-                        width: weapon.displayName == 'Frenzy' ||
-                                weapon.displayName == 'Classic'
+                        width: weapon.displayName == 'Frenzy' || weapon.displayName == 'Classic'
                             ? Platform.isAndroid
                                 ? 27.w
                                 : 40.w
@@ -69,13 +72,14 @@ class WeaponSectionOne extends StatelessWidget {
                     children: [
                       Text('CATEGORY',
                           style: TextStyle(
-                              color: white, fontWeight: FontWeight.bold,
+                              color: black,
+                              fontWeight: FontWeight.bold,
                               fontSize:
-                              // For iphone 5s and iphone se gen 1
-                              deviceInfo == 439 ? 12.5.sp
-                              // Others
-                                  : 12.5.sp
-                          )),
+                                  // For iphone 5s and iphone se gen 1
+                                  deviceInfo == 439
+                                      ? 12.5.sp
+                                      // Others
+                                      : 12.5.sp)),
                       SizedBox(
                         height: 5.h,
                       ),
@@ -83,7 +87,7 @@ class WeaponSectionOne extends StatelessWidget {
                       // Because one thing that comes: "EEquippableCategory::Rifle"
                       Text(
                         weapon.category?.substring(21) ?? 'No Data',
-                        style: TextStyle(color: white),
+                        style: const TextStyle(color: black),
                       ),
                     ],
                   ),
@@ -93,22 +97,22 @@ class WeaponSectionOne extends StatelessWidget {
                     children: [
                       Text('WALL DAMAGE',
                           style: TextStyle(
-                              color: white, fontWeight: FontWeight.bold,
+                              color: black,
+                              fontWeight: FontWeight.bold,
                               fontSize:
-                              // For iphone 5s and iphone se gen 1
-                              deviceInfo == 439 ? 12.5.sp
-                              // Others
-                                  : 12.5.sp
-                          )),
+                                  // For iphone 5s and iphone se gen 1
+                                  deviceInfo == 439
+                                      ? 12.5.sp
+                                      // Others
+                                      : 12.5.sp)),
                       SizedBox(
                         height: 5.h,
                       ),
                       // I just used substring to get the last part.
                       // Because one thing that comes: "EWallPenetrationDisplayType::Low"
                       Text(
-                        weapon.weaponStats?.wallPenetration?.substring(29) ??
-                            'No Data',
-                        style: TextStyle(color: white),
+                        weapon.weaponStats?.wallPenetration?.substring(29) ?? 'No Data',
+                        style: const TextStyle(color: black),
                       ),
                     ],
                   ),
@@ -134,23 +138,27 @@ class WeaponSectionOne extends StatelessWidget {
                     children: [
                       Text('FIRE RATE',
                           style: TextStyle(
-                              color: white, fontWeight: FontWeight.bold,
+                              color: black,
+                              fontWeight: FontWeight.bold,
                               fontSize:
-                              // For iphone 5s and iphone se gen 1
-                              deviceInfo == 439 ? 12.5.sp
-                              // Others
-                                  : 12.5.sp
-                          )),
+                                  // For iphone 5s and iphone se gen 1
+                                  deviceInfo == 439
+                                      ? 12.5.sp
+                                      // Others
+                                      : 12.5.sp)),
                       SizedBox(
                         height: 5.h,
                       ),
                       Text(
                         '${weapon.weaponStats?.fireRate ?? 'No Data'} / Sec',
-                        style: TextStyle(color: white,fontSize:
-                        // For iphone 5s and iphone se gen 1
-                        deviceInfo == 439 ? 12.5.sp
-                        // Others
-                            : 12.5.sp),
+                        style: TextStyle(
+                            color: black,
+                            fontSize:
+                                // For iphone 5s and iphone se gen 1
+                                deviceInfo == 439
+                                    ? 12.5.sp
+                                    // Others
+                                    : 12.5.sp),
                       ),
                     ],
                   ),
@@ -160,23 +168,27 @@ class WeaponSectionOne extends StatelessWidget {
                     children: [
                       Text('RELOAD SPEED',
                           style: TextStyle(
-                              color: white,
+                              color: black,
                               fontWeight: FontWeight.bold,
                               fontSize:
-                              // For iphone 5s and iphone se gen 1
-                              deviceInfo == 439 ? 12.5.sp
-                              // Others
-                                  : 12.5.sp)),
+                                  // For iphone 5s and iphone se gen 1
+                                  deviceInfo == 439
+                                      ? 12.5.sp
+                                      // Others
+                                      : 12.5.sp)),
                       SizedBox(
                         height: 5.h,
                       ),
                       Text(
                         '${weapon.weaponStats?.reloadTimeSeconds ?? 'No Data'} / Sec',
-                        style: TextStyle(color: white,fontSize:
-                        // For iphone 5s and iphone se gen 1
-                        deviceInfo == 439 ? 12.5.sp
-                        // Others
-                            : 12.5.sp),
+                        style: TextStyle(
+                            color: black,
+                            fontSize:
+                                // For iphone 5s and iphone se gen 1
+                                deviceInfo == 439
+                                    ? 12.5.sp
+                                    // Others
+                                    : 12.5.sp),
                       ),
                     ],
                   ),
@@ -186,21 +198,27 @@ class WeaponSectionOne extends StatelessWidget {
                     children: [
                       Text('MAGAZINE SIZE',
                           style: TextStyle(
-                              color: white, fontWeight: FontWeight.bold,fontSize:
-                          // For iphone 5s and iphone se gen 1
-                          deviceInfo == 439 ? 10.5.sp
-                          // Others
-                              : 11.5.sp)),
+                              color: black,
+                              fontWeight: FontWeight.bold,
+                              fontSize:
+                                  // For iphone 5s and iphone se gen 1
+                                  deviceInfo == 439
+                                      ? 10.5.sp
+                                      // Others
+                                      : 11.5.sp)),
                       SizedBox(
                         height: 5.h,
                       ),
                       Text(
                         '${weapon.weaponStats?.magazineSize ?? 'No Data'}',
-                        style: TextStyle(color: white,fontSize:
-                        // For iphone 5s and iphone se gen 1
-                        deviceInfo == 439 ? 12.5.sp
-                        // Others
-                            : 13.5.sp),
+                        style: TextStyle(
+                            color: black,
+                            fontSize:
+                                // For iphone 5s and iphone se gen 1
+                                deviceInfo == 439
+                                    ? 12.5.sp
+                                    // Others
+                                    : 13.5.sp),
                       ),
                     ],
                   ),
