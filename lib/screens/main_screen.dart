@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   ];
 
   // Review Services
-  ReviewService _reviewService = ReviewService();
+  // ReviewService _reviewService = ReviewService();
 
   // Assets
   final AppAssets _appAssets = AppAssets();
@@ -37,16 +37,16 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     super.initState();
 
     // Init sharedprefs
-    SharedPreferencesHelper.init();
+    // SharedPreferencesHelper.init();
 
     // App Review
-    Timer(const Duration(seconds: 2), () {
-      _reviewService.isSecondTimeOpen().then((secondOpen) {
-        if (secondOpen) {
-          _reviewService.showRating();
-        }
-      });
-    });
+    // Timer(const Duration(seconds: 2), () {
+    //   _reviewService.isSecondTimeOpen().then((secondOpen) {
+    //     if (secondOpen) {
+    //       _reviewService.showRating();
+    //     }
+    //   });
+    // });
   }
 
   @override

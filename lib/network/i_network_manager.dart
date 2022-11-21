@@ -1,8 +1,8 @@
-import '../models/network_result.dart';
+// import '../models/network_result.dart';
 
-typedef NetworkCallback = void Function(NetworkResult result);
+// typedef NetworkCallback = void Function(NetworkResult result);
 
-abstract class INetworkManager {
-  void handleNetworkChange(NetworkCallback onChange);
-  void dispose();
-}
+// abstract class INetworkManager {
+//   void handleNetworkChange(NetworkCallback onChange);
+//   void dispose();
+// }

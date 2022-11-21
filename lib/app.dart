@@ -17,40 +17,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late final NetworkManager _networkManager;
+  // late final NetworkManager _networkManager;
   NetworkResult? _networkResult;
 
-  @override
-  void initState() {
-    super.initState();
-    _networkManager = NetworkManager();
-    _networkManager.handleNetworkChange((result) {
-      setState(() {
-        _networkResult = result;
-      });
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _networkManager = NetworkManager();
+  //   _networkManager.handleNetworkChange((result) {
+  //     setState(() {
+  //       _networkResult = result;
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (_, child) => MaterialApp(
-        builder: (BuildContext context, Widget? widget) {
-          ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
-            return kDebugMode
-                ? CustomErrorScreen(errorDetails: errorDetails)
-                : ErrorScreen(
-                    errorDetails: errorDetails,
-                    isNetworkError: false,
-                  );
-          };
-          return widget!;
-        },
         debugShowCheckedModeBanner: false,
-        home: _networkResult == NetworkResult.off
-            ? const ErrorScreen(isNetworkError: true)
-            : const MainScreen(),
+        home: const MainScreen(),
         theme: AppTheme().valoTheme,
       ),
     );
