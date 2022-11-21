@@ -17,6 +17,7 @@ class Agent {
   Role? role;
   List<Abilities>? abilities;
 
+  // constructor
   Agent({
     this.uuid,
     this.displayName,
@@ -56,36 +57,12 @@ class Agent {
     role = json['role'] != null ? Role.fromJson(json['role']) : null;
     if (json['abilities'] != null) {
       abilities = <Abilities>[];
-      json['abilities'].forEach((v) {
-        abilities!.add(Abilities.fromJson(v));
-      });
+      json['abilities'].forEach(
+        (v) {
+          abilities!.add(Abilities.fromJson(v));
+        },
+      );
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['uuid'] = uuid;
-    data['displayName'] = displayName;
-    data['description'] = description;
-    data['developerName'] = developerName;
-    data['displayIcon'] = displayIcon;
-    data['displayIconSmall'] = displayIconSmall;
-    data['bustPortrait'] = bustPortrait;
-    data['fullPortrait'] = fullPortrait;
-    data['fullPortraitV2'] = fullPortraitV2;
-    data['killfeedPortrait'] = killfeedPortrait;
-    data['assetPath'] = assetPath;
-    data['isFullPortraitRightFacing'] = isFullPortraitRightFacing;
-    data['isPlayableCharacter'] = isPlayableCharacter;
-    data['isAvailableForTest'] = isAvailableForTest;
-    data['isBaseContent'] = isBaseContent;
-    if (role != null) {
-      data['role'] = role!.toJson();
-    }
-    if (abilities != null) {
-      data['abilities'] = abilities!.map((v) => v.toJson()).toList();
-    }
-    return data;
   }
 }
 
@@ -96,12 +73,7 @@ class Role {
   String? displayIcon;
   String? assetPath;
 
-  Role(
-      {this.uuid,
-      this.displayName,
-      this.description,
-      this.displayIcon,
-      this.assetPath});
+  Role({this.uuid, this.displayName, this.description, this.displayIcon, this.assetPath});
 
   Role.fromJson(Map<String, dynamic> json) {
     uuid = json['uuid'];
@@ -109,16 +81,6 @@ class Role {
     description = json['description'];
     displayIcon = json['displayIcon'];
     assetPath = json['assetPath'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['uuid'] = uuid;
-    data['displayName'] = displayName;
-    data['description'] = description;
-    data['displayIcon'] = displayIcon;
-    data['assetPath'] = assetPath;
-    return data;
   }
 }
 
@@ -136,15 +98,6 @@ class Abilities {
     description = json['description'];
     displayIcon = json['displayIcon'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['slot'] = slot;
-    data['displayName'] = displayName;
-    data['description'] = description;
-    data['displayIcon'] = displayIcon;
-    return data;
-  }
 }
 
 class MediaList {
@@ -158,13 +111,5 @@ class MediaList {
     id = json['id'];
     wwise = json['wwise'];
     wave = json['wave'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['wwise'] = wwise;
-    data['wave'] = wave;
-    return data;
   }
 }

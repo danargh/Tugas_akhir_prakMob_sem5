@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:valorant_tips/constants/app_colors.dart';
 import 'package:valorant_tips/models/agent.dart';
@@ -23,8 +22,7 @@ class _AbiliityListState extends State<AbiliityList> {
         children: [
           const Text(
             'ABILITIES',
-            style:
-                TextStyle(fontFamily: 'Valorant', color: white, fontSize: 20),
+            style: TextStyle(fontFamily: 'Valorant', color: black, fontSize: 20),
           ),
           SizedBox(
             height: 70.h,
@@ -73,16 +71,14 @@ class _AbiliityListState extends State<AbiliityList> {
                   // Swipe Right //
                   selectedIndex < widget.abilityList.length
                       ? setState(() {
-                          selectedIndex != 0
-                              ? selectedIndex -= 1
-                              : selectedIndex = selectedIndex;
+                          selectedIndex != 0 ? selectedIndex -= 1 : selectedIndex = selectedIndex;
                         })
                       : print('abilities index error');
                 }
               },
               child: Container(
                 decoration: BoxDecoration(
-                    color: CupertinoColors.systemGrey,
+                    color: const Color.fromARGB(255, 255, 70, 86),
                     borderRadius: BorderRadius.circular(10)),
                 width: 1.sw,
                 height: 0.30.sh,
@@ -96,15 +92,11 @@ class _AbiliityListState extends State<AbiliityList> {
                       Text(
                         (widget.abilityList[selectedIndex].slot! == 'Ability1'
                                 ? 'Q - '
-                                : widget.abilityList[selectedIndex].slot ==
-                                        'Ability2'
+                                : widget.abilityList[selectedIndex].slot == 'Ability2'
                                     ? 'E - '
-                                    : widget.abilityList[selectedIndex].slot ==
-                                            'Grenade'
+                                    : widget.abilityList[selectedIndex].slot == 'Grenade'
                                         ? 'C - '
-                                        : widget.abilityList[selectedIndex]
-                                                    .slot ==
-                                                'Ultimate'
+                                        : widget.abilityList[selectedIndex].slot == 'Ultimate'
                                             ? 'X - '
                                             : 'Passive - ') +
                             widget.abilityList[selectedIndex].displayName!,

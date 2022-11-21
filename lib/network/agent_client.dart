@@ -1,5 +1,3 @@
-// import 'package:dio/dio.dart';
-
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
@@ -21,13 +19,16 @@ class AgentClient extends ApiClient {
     var apiResult = await http.get(finalUrl);
     var jsonObject = jsonDecode(apiResult.body);
     List parsedList = (jsonObject as Map<String, dynamic>)['data'];
-    agents = parsedList.map((element) {
-      return Agent.fromJson(element);
-    });
+    agents = parsedList.map(
+      (element) {
+        return Agent.fromJson(element);
+      },
+    );
 
     if (agentRole != null) {
-      agents = agents.where((element) =>
-          element.role!.displayName!.toLowerCase() == agentRole.toLowerCase());
+      agents = agents.where(
+        (element) => element.role!.displayName!.toLowerCase() == agentRole.toLowerCase(),
+      );
     }
     return agents;
   }

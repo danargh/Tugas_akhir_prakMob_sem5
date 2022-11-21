@@ -11,7 +11,6 @@ class MapsClient extends ApiClient {
     // Get response
     var apiResult = await http.get(url);
     var jsonObject = jsonDecode(apiResult.body);
-    // Parsed list bunu mapleyip her haritayi tek tek maps listesine atiyoruz
     List parsedList = (jsonObject as Map<String, dynamic>)['data'];
     maps = parsedList.map((element) {
       return Maps.fromJson(element);

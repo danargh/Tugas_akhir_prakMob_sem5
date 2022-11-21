@@ -1,12 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:valorant_tips/models/weapon.dart';
 import 'package:valorant_tips/widgets/weapon_screen/weapon_detail.dart';
-
-import '../../constants/app_colors.dart';
 
 class WeaponCard extends StatelessWidget {
   WeaponCard({Key? key, required this.weapon}) : super(key: key);
@@ -14,14 +11,15 @@ class WeaponCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => WeaponDetail(weapon: weapon)));
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => WeaponDetail(weapon: weapon)));
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 15.w),
+        padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
         child: Container(
           decoration: BoxDecoration(
-           color: HexColor('#F1DAC4'),
+            color: const Color.fromARGB(255, 255, 70, 86),
             borderRadius: BorderRadius.circular(15),
           ),
           child: Column(
@@ -37,19 +35,20 @@ class WeaponCard extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: weapon.displayIcon!,
                   width:
-                  // For Classic
-                  weapon.displayName! == 'Classic'
-                      ? 120.w
-                      :
-                  // For Frenzy
-                  weapon.displayName == 'Frenzy'
-                          ? 110.w
+                      // For Classic
+                      weapon.displayName! == 'Classic'
+                          ? 120.w
                           :
-                      // For odin and Ares
-                  weapon.displayName == 'Odin' || weapon.displayName == 'Ares' ?
-                     170.w :
-                      // Others
-                  150.w,
+                          // For Frenzy
+                          weapon.displayName == 'Frenzy'
+                              ? 110.w
+                              :
+                              // For odin and Ares
+                              weapon.displayName == 'Odin' || weapon.displayName == 'Ares'
+                                  ? 170.w
+                                  :
+                                  // Others
+                                  150.w,
                 ),
               ),
 
@@ -67,7 +66,7 @@ class WeaponCard extends StatelessWidget {
                     ),
                     // Weapon Category
                     Text(
-                      '${weapon.shopData!.category!}',
+                      weapon.shopData!.category!,
                       style: TextStyle(color: HexColor('#0D1927'), fontSize: 10.sp),
                     ),
                   ],
