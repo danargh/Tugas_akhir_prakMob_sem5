@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:valorant_tips/constants/app_assets.dart';
-import 'package:valorant_tips/network/review_service.dart';
-import 'package:valorant_tips/network/shared_preferences_helper.dart';
 import 'package:valorant_tips/screens/agents_screen.dart';
 import 'package:valorant_tips/screens/maps_screen.dart';
 // import 'package:valorant_tips/screens/ranks_screen.dart';
@@ -27,11 +25,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   ];
 
   // Review Services
-<<<<<<< HEAD
   // ReviewService _reviewService = ReviewService();
-=======
-  final ReviewService _reviewService = ReviewService();
->>>>>>> 6a3a2573cb8a341087eb920a473f64a9c18eaa56
 
   // Assets
   final AppAssets _appAssets = AppAssets();
@@ -59,7 +53,8 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
       bottomNavigationBar: PersistentTabView(
         context,
         navBarStyle: NavBarStyle.style3,
-        backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
+        backgroundColor:
+            Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
         screens: tabs,
         items: [
           // Agents
