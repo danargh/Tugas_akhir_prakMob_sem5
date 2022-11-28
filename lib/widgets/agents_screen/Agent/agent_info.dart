@@ -37,7 +37,11 @@ class AgentInfo extends StatelessWidget {
   Stack agentImage() {
     return Stack(alignment: Alignment.bottomLeft, children: [
       Column(
-        children: [Hero(tag: agent, child: CachedNetworkImage(imageUrl: agent.fullPortrait!))],
+        children: [
+          Hero(
+              tag: agent,
+              child: CachedNetworkImage(imageUrl: agent.fullPortrait!))
+        ],
       ),
       Positioned(
         left: 15.w,
@@ -67,7 +71,8 @@ class AgentInfo extends StatelessWidget {
                   padding: EdgeInsets.only(top: 1.h),
                   child: Text(
                     agent.role!.displayName!,
-                    style: TextStyle(fontFamily: 'Valorant', color: black, fontSize: 11.sp),
+                    style: TextStyle(
+                        fontFamily: 'Valorant', color: black, fontSize: 11.sp),
                   ),
                 ),
               ],

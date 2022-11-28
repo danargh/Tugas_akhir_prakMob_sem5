@@ -47,7 +47,8 @@ class _AgentsScreenState extends State<AgentsScreen> {
               padding: EdgeInsets.only(top: 50.h, left: 13.w),
               child: const Text(
                 'Agent',
-                style: TextStyle(color: Colors.black, fontSize: 30, fontFamily: 'Valorant'),
+                style: TextStyle(
+                    color: Colors.black, fontSize: 30, fontFamily: 'Valorant'),
                 textAlign: TextAlign.start,
               ),
             ),

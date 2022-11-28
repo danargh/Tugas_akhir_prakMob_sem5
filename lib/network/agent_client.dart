@@ -27,7 +27,8 @@ class AgentClient extends ApiClient {
 
     if (agentRole != null) {
       agents = agents.where(
-        (element) => element.role!.displayName!.toLowerCase() == agentRole.toLowerCase(),
+        (element) =>
+            element.role!.displayName!.toLowerCase() == agentRole.toLowerCase(),
       );
     }
     return agents;

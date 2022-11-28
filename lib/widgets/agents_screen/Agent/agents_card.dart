@@ -7,36 +7,14 @@ import 'package:valorant_tips/models/agent.dart';
 import 'package:valorant_tips/widgets/agents_screen/Agent/agents_detail.dart';
 
 class AgentsCard extends StatelessWidget {
-  AgentsCard({Key? key, required this.agent, required this.index}) : super(key: key);
+  AgentsCard({Key? key, required this.agent, required this.index})
+      : super(key: key);
 
   Agent agent;
   int index;
 
   @override
   Widget build(BuildContext context) {
-    // Agent Colors
-    var agentColors = {
-      'fade': fadeColors,
-      'breach': breachColors,
-      'raze': razeColors,
-      'chamber': chamberColors,
-      'kay/o': kayoColors,
-      'skye': skyeColors,
-      'cypher': cypherColors,
-      'sova': sovaColors,
-      'killjoy': killjoyColors,
-      'viper': viperColors,
-      'phoenix': phoenixColors,
-      'astra': astraColors,
-      'brimstone': brimstoneColors,
-      'neon': neonColors,
-      'yoru': yoruColors,
-      'sage': sageColors,
-      'reyna': reynaColors,
-      'omen': omenColors,
-      'jett': jettColors,
-    };
-
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -57,16 +35,7 @@ class AgentsCard extends StatelessWidget {
 
               // Colored Container
               child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: agentColors[agent.displayName!.toLowerCase()] ??
-                          [CupertinoColors.destructiveRed, CupertinoColors.black]),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),
+                decoration: BoxDecoration(color: Colors.grey),
                 alignment: Alignment.bottomLeft,
                 width: 160.w,
 
@@ -80,11 +49,17 @@ class AgentsCard extends StatelessWidget {
                     children: [
                       Text(
                         agent.role!.displayName!,
-                        style: TextStyle(fontFamily: 'Valorant', color: white, fontSize: 10.sp),
+                        style: TextStyle(
+                            fontFamily: 'Valorant',
+                            color: white,
+                            fontSize: 10.sp),
                       ),
                       Text(
                         agent.displayName!,
-                        style: TextStyle(fontFamily: 'Valorant', color: white, fontSize: 20.sp),
+                        style: TextStyle(
+                            fontFamily: 'Valorant',
+                            color: white,
+                            fontSize: 20.sp),
                       ),
                     ],
                   ),
@@ -98,9 +73,11 @@ class AgentsCard extends StatelessWidget {
             child: Hero(
               tag: agent,
               child: CachedNetworkImage(
-                  placeholder: (context, url) => const CircularProgressIndicator(),
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
-                  imageUrl: agent.fullPortrait ?? 'https://via.placeholder.com/150'),
+                  imageUrl:
+                      agent.fullPortrait ?? 'https://via.placeholder.com/150'),
             ),
           ),
         ],

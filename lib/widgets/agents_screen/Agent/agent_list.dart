@@ -11,7 +11,10 @@ class AgentList extends StatelessWidget {
   Widget build(BuildContext context) {
     if (snapshot.connectionState == ConnectionState.waiting) {
       return Center(
-          child: SizedBox(height: 100.h, width: 50.w, child: const CircularProgressIndicator()));
+          child: SizedBox(
+              height: 100.h,
+              width: 50.w,
+              child: const CircularProgressIndicator()));
     } else if (snapshot.connectionState == ConnectionState.done) {
       if (snapshot.hasError) {
         return const Text('Error');
